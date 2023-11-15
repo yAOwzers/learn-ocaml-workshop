@@ -22,7 +22,10 @@ let () =
    Write a function that computes the sum of two coordinates. *)
 type coordinate = int * int
 
-let add coord1 coord2 = failwith "For you to implement"
+let add coord1 coord2 = 
+  match coord1, coord2 with
+  | (x1, y1), (x2, y2) -> (x1+x2, y1 + y2)
+;;
 
 (* Now consider a [name] type containing two [string]s representing the first and
    the last name. *)
@@ -56,8 +59,15 @@ let nested_char_pair : char pair pair = ('a', 'b'), ('c', 'd')
 
 (* Write functions to extract the first and second elements from a pair. Their
    signatures can be found in the mli. *)
-let first pair = failwith "For you to implement"
-let second pair = failwith "For you to implement"
+let first pair = 
+  match pair with
+  | (first, _) -> first
+;;
+
+let second pair = 
+  match pair with
+  | (_, second) -> second
+;;
 
 (* Notice the cool [%compare.equal: int * int] here!  *)
 let%test "Testing add..." = [%compare.equal: int * int] (4, 7) (add (5, 3) (-1, 4))

@@ -1,0 +1,1 @@
+dune build -w --terminal-persistence=clear-on-rebuild
